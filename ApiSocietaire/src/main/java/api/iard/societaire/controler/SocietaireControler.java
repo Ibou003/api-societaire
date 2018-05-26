@@ -1,7 +1,5 @@
 package api.iard.societaire.controler;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +16,7 @@ import api.iard.societaire.repository.SocietaireRepository;
 import api.iard.societaire.service.SocietaireService;
 
 @RestController
-@RequestMapping("/iard/societaires/v1/")
+@RequestMapping("/iard/societaires/v1/societaire")
 public class SocietaireControler {
 
     @Autowired
@@ -28,7 +26,7 @@ public class SocietaireControler {
     public SocietaireService societaireService;
 
     // recupper les données d'un societaire
-    @GetMapping("/societaire/{numeroSocietaire}")
+    @GetMapping("/{numeroSocietaire}")
     public Societaire getSocietaire(@PathVariable Long numeroSocietaire) {
         return societaireRepository.findByNumeroSocietaire(numeroSocietaire);
     }
@@ -40,13 +38,13 @@ public class SocietaireControler {
     }
 
     // PUT: Modification du Sociétaire (Endpoint d’accès par NSOC)
-    @PutMapping("/societaire/{numeroSocietaire}")
+    @PutMapping("/{numeroSocietaire}")
     public Societaire modicationSocietaire(@RequestParam Long numeroSocietaire, @RequestBody Societaire societaire) {
         return societaireService.modicationSocietaire(numeroSocietaire, societaire);
     }
 
     // PUT: Modification de l'adresse du Sociétaire (Endpoint d’accès par NSOC)
-    @PutMapping("/societaire/{numeroSocietaire}/adresse")
+    @PutMapping("/{numeroSocietaire}/adresse")
     public Societaire modicationSocietaire(@PathVariable Long numeroSocietaire, @RequestBody AdresseSocietaire adresseSocietaire) {
         return societaireService.modificationAdresseSocietaire(numeroSocietaire, adresseSocietaire);
     }
