@@ -1,0 +1,58 @@
+{
+    
+    "statut": "Sociétaire",
+    "numeroPaysSurvenance": null,
+    "codeDelegation": 6310,
+    "numeroDelegation": 6301,
+    "numeroAdresseDomicile": 0,
+    "situationRecouvrement": 0,
+    "situationSocietaire": 1,
+    "libelleSituationSocietaire": "En cours",
+    "codeInterdictionMajSocietaire": 0,
+    "codeAutorisationVideotex": 0,
+    "avisEcheance": {
+        "rel": "avis-echeance",
+        "link": "/avisecheance/api/avis-echeance?dateAdhesion=2005-01-01"
+    },
+    "identifiant": "1-AX2-23497",
+    "numeroSocietaireFormate": "5996664K",
+    "numeroSocietaire": 7996664,
+    "codeInsee": 113,
+    "lettreCle": "K",
+    "societe": "FILIA MAIF",
+    "codeSociete": 272,
+    "identifiantMSC": null,
+    "dateAdhesion": "2005-01-01",
+    "dateAdhesionMSC": null,
+    "dateRadiation": "1801-01-01",
+    "codeRadiation": 0,
+    "codePersonne": 1,
+    "codeSexe": 2,
+    "situationParticuliereSocietaire": "0",
+    "nomSocietaire": ",KENDZIERSKI,PIERRETTE",
+    
+    "informationsBancaire": {
+        "codeIBAN": null,
+        "codeBIC": null,
+        "typeTitulaireDomiciliation": 1,
+        "codeModalitePaiement": 2,
+        "nomTitulaireDomiciliation": null,
+        "libelleDomiciliation": "BANQUE POPULAIRE DU MASS",
+        "codeStatutMandat": "I",
+        "adresse1TitulaireCompteAutre": null,
+        "adresse2TitulaireCompteAutre": null,
+        "codePostalTitulaireCompteAutre": null,
+        "communeTitulaireCompteAutre": null
+    }, 
+    
+    "adresseSocietaire": {
+        
+        "codePostal": "92100", 
+        "commune": "ile de France",
+        "departement": "Hauts-de-Seine",
+        "adresse1": "8 allée Marcelin berthelot" , 
+        "adresse2": ""
+        
+    }
+    
+}
