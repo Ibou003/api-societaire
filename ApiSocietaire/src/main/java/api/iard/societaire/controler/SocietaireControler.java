@@ -1,5 +1,10 @@
 package api.iard.societaire.controler;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +22,7 @@ import api.iard.societaire.service.SocietaireService;
 
 @RestController
 @RequestMapping("/iard/societaires/v1/societaire")
+@Api(value="Societaire Endepoints", description="Ressource Societaire ")
 public class SocietaireControler {
 
     @Autowired
@@ -48,7 +54,13 @@ public class SocietaireControler {
     public Societaire modicationSocietaire(@PathVariable Long numeroSocietaire, @RequestBody AdresseSocietaire adresseSocietaire) {
         return societaireService.modificationAdresseSocietaire(numeroSocietaire, adresseSocietaire);
     }
-
+    @ApiOperation(value="Return hello Word")
+    @ApiResponses(
+    		value = {
+    				@ApiResponse(code =100, message = "100 is the message"),
+    				@ApiResponse(code =200, message = "Sucessfull hello word ! ")
+    		}
+    )
     @GetMapping("/hello")
     public String getHello() {
         return "Hello World";

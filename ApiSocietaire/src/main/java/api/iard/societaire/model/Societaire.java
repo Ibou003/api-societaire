@@ -1,5 +1,7 @@
 package api.iard.societaire.model;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 
 import javax.persistence.CascadeType;
@@ -18,6 +20,7 @@ public class Societaire implements Serializable {
     /**
      * Numéro de sociétaire en numérique.
      */
+    @ApiModelProperty(notes = "Numéro de sociétaire en numérique")
     @Id
     private Long numeroSocietaire;
 
