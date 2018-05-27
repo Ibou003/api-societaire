@@ -20,6 +20,7 @@ public class Societaire implements Serializable {
     /**
      * Numéro de sociétaire en numérique.
      */
+//    documentation des models 
     @ApiModelProperty(notes = "Numéro de sociétaire en numérique")
     @Id
     private Long numeroSocietaire;
