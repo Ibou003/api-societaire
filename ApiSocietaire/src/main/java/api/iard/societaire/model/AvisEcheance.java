@@ -3,11 +3,11 @@ package api.iard.societaire.model;
 import java.io.Serializable;
 import java.net.URI;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
 
-@Entity
+//@Entity
+@Document(indexName = "avisEcheance", type = "avisEcheance", shards = 1)
 public class AvisEcheance implements Serializable {
     /**
      *
@@ -17,9 +17,9 @@ public class AvisEcheance implements Serializable {
     /**
      * Type relation ("avis-echeance").
      */
-
+//
     @Id
-    @GeneratedValue
+//    @GeneratedValue
     private Long id;
 
     private String rel;
