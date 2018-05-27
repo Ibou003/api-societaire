@@ -37,7 +37,7 @@ public class Societaire implements Serializable {
     private Long codeInsee;
 
     /**
-     * Lettre clé du sociétaire.
+     * Lettre clé du sociétaire. h
      */
     private String lettreCle;
 
