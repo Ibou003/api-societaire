@@ -7,5 +7,5 @@ import api.iard.societaire.model.Societaire;
 
 @Repository
 public interface SocietaireRepository extends JpaRepository<Societaire, Long> {
-    Societaire findByNumeroSocietaire(Long numeroSocietaire);
+    Societaire findByNumeroSocietaire(long numeroSocietaire);
 }
