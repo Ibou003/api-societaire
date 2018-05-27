@@ -19,6 +19,16 @@
         Step 8 : Commit and Push every change to the repo
 
 ## Spring Data et ElasticSearch
+
+### Dépendance 
+
+```xml
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+	</dependency>
+```
+
 ## Test d'intégration sur les projets
 
     "Test d'intégration" signifie ici que l'on teste le fonctionnement de l'API en bouchonnant tous les éléments extérieurs (APIs, source de données, ...).
