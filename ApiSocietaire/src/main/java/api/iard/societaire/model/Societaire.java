@@ -1,15 +1,11 @@
 package api.iard.societaire.model;
 
-import io.swagger.annotations.ApiModelProperty;
-
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
 
-@Entity
+@Document(indexName = "societaire", type = "societaire", shards = 1)
 public class Societaire implements Serializable {
 
     /**
@@ -21,7 +17,7 @@ public class Societaire implements Serializable {
      * Numéro de sociétaire en numérique.
      */
 //    documentation des models 
-    @ApiModelProperty(notes = "Numéro de sociétaire en numérique")
+//    @ApiModelProperty(notes = "Numéro de sociétaire en numérique")
     @Id
     private Long numeroSocietaire;
 
@@ -103,7 +99,7 @@ public class Societaire implements Serializable {
     /**
      * Informations bancaires du sociétaire.
      */
-    @OneToOne(cascade = CascadeType.ALL)
+//    @OneToOne(cascade = CascadeType.ALL)
     private InformationsBancaires informationsBancaire;
 
     /**
@@ -190,7 +186,7 @@ public class Societaire implements Serializable {
      * annuelle.
      */
 
-    @OneToOne(cascade = CascadeType.ALL)
+//    @OneToOne(cascade = CascadeType.ALL)
     private AvisEcheance avisEcheance;
 
     /**
@@ -211,7 +207,7 @@ public class Societaire implements Serializable {
     /**
      * l'adresse societaire celle-ci va etre objet d'une modification
      */
-    @OneToOne(cascade = CascadeType.ALL)
+//    @OneToOne(cascade = CascadeType.ALL)
     // @JsonIgnore
     private AdresseSocietaire adresseSocietaire;
 

@@ -2,11 +2,11 @@ package api.iard.societaire.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
 
-@Entity
+//@Entity
+@Document(indexName = "informationsBancaires", type = "informationsBancaires", shards = 1)
 public class InformationsBancaires implements Serializable {
 
     /**
@@ -19,7 +19,7 @@ public class InformationsBancaires implements Serializable {
      *
      */
     @Id
-    @GeneratedValue
+//    @GeneratedValue
     private Long id;
 
     private String codeIBAN;
