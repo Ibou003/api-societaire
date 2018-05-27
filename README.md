@@ -44,3 +44,8 @@
         <scope>test</scope>
     </dependency>
     ```
+  
+## Spring Boot integration with Swagger 2 UI
+
+http://localhost:8080/swagger-ui.html - affiche des endpoints notre  RESTful webservice.
+
