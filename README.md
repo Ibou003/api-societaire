@@ -49,17 +49,21 @@
 
 http://localhost:8080/swagger-ui.html - affiche des endpoints notre  RESTful webservice.
 
-#### Dépendances : 
-<dependency>
+### Dépendances : 
+
+    ```xml
+	<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
 			<version>2.6.1</version>
 			<scope>compile</scope>
-</dependency>
-<dependency>
+		</dependency>
+
+		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.6.1</version>
 			<scope>compile</scope>
-</dependency>
+		</dependency>
+    ```
 
