@@ -36,14 +36,14 @@
 
     Pour pouvoir utiliser WireMock dans les tests, il est nécessaire d'avoir la dépendance suivante :
 
-    ```xml
+```xml
     <dependency>
         <groupId>com.github.tomakehurst</groupId>
         <artifactId>wiremock-standalone</artifactId>
         <version>2.12.0</version>
         <scope>test</scope>
     </dependency>
-    ```
+```
   
 ## Spring Boot integration with Swagger 2 UI
 
