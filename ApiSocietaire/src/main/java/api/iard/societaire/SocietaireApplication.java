@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class SocietaireApplication {
-
+	// page principal de notre api
 	public static void main(String[] args) {
 		SpringApplication.run(SocietaireApplication.class, args);
 	}
