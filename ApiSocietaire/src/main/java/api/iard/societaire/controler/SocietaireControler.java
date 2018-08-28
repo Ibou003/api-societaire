@@ -24,7 +24,7 @@ import api.iard.societaire.service.SocietaireService;
 @RequestMapping("/iard/societaires/v1/societaire")
 @Api(value="Societaire Endepoints", description="Ressource Societaire ")
 public class SocietaireControler {
-
+// notre controller api 
     @Autowired
     public SocietaireRepository societaireRepository;
 
