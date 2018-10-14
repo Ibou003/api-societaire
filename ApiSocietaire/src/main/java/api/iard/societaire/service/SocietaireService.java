@@ -10,5 +10,4 @@ public interface SocietaireService {
     Societaire modicationSocietaire(Long numeroSocietaire, Societaire societaire);
     Societaire addSocietaire(Societaire societaire);
     List <Societaire> listSocietaire();
-    //
 }
