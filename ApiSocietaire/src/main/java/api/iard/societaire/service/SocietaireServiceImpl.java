@@ -1,4 +1,8 @@
 package api.iard.societaire.service;
+import com.google.common.collect.Lists;
+import java.util.ArrayList;
+import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +25,6 @@ public class SocietaireServiceImpl implements SocietaireService {
                 AdresseSocietaire adresseS = new AdresseSocietaire();
                 societaire.setAdresseSocietaire(adresseS);
             }
-            System.out.println(adresseSocietaire.toString());
             societaire.setAdresseSocietaire(adresseSocietaire);
 
             societaireRepository.save(societaire);
@@ -32,16 +35,24 @@ public class SocietaireServiceImpl implements SocietaireService {
     @Override
     public Societaire modicationSocietaire(Long numeroSocietaire, Societaire societaire) {
         Societaire societaire1 = societaireRepository.findByNumeroSocietaire(numeroSocietaire);
+        // on peut modifier que le nom du societaire le reste basta
         if (societaire1 != null) {
-            societaire1.setCodeEmployeur(societaire.getCodeEmployeur());
-            societaire1.setCodeInsee(societaire.getCodeInsee());
-            societaire1.setStatut(societaire.getStatut());
+            societaire1.setNomSocietaire(societaire.getNomSocietaire()==null ? societaire1.getNomSocietaire() : societaire.getNomSocietaire());
         }
         return societaireRepository.save(societaire1);
     }
-
+    
 	@Override
 	public Societaire addSocietaire(Societaire societaire) {
-		return this.societaireRepository.save(societaire);
+		if(societaire.getNumeroSocietaire() != null) {
+			System.out.println(societaire);
+			return this.societaireRepository.save(societaire);
+		}
+		return null;
+	}
+
+	@Override
+	public List<Societaire> listSocietaire() {
+		return this.societaireRepository.findAll().getContent();
 	}
 }

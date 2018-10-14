@@ -5,6 +5,9 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import api.iard.societaire.model.AdresseSocietaire;
@@ -22,48 +24,54 @@ import api.iard.societaire.service.SocietaireService;
 
 @RestController
 @RequestMapping("/iard/societaires/v1/societaire")
-@Api(value="Societaire Endepoints", description="Ressource Societaire ")
+@Api(value = "Societaire Endepoints", description = "Ressource Societaire ")
 public class SocietaireControler {
 // notre controller api 
-    @Autowired
-    public SocietaireRepository societaireRepository;
+	@Autowired
+	public SocietaireRepository societaireRepository;
 
-    @Autowired
-    public SocietaireService societaireService;
+	@Autowired
+	public SocietaireService societaireService;
 
-    // recupper les données d'un societaire
-    @GetMapping("/{numeroSocietaire}")
-    public Societaire getSocietaire(@PathVariable Long numeroSocietaire) {
-        return societaireRepository.findByNumeroSocietaire(numeroSocietaire);
-    }
+	// recupper les données d'un societaire
+	@GetMapping("/{numeroSocietaire}")
+	public Societaire getSocietaire(@PathVariable Long numeroSocietaire) {
+		Societaire soc = societaireRepository.findByNumeroSocietaire(numeroSocietaire);
+		return soc;
+	}
+	
+	// recupper la liste des societaires
+	@GetMapping("/list")
+	public List <Societaire> getListSocietaire() {
+		System.out.println(this.societaireService.listSocietaire());
+		return this.societaireService.listSocietaire();
+	}
 
-    // post une nouvelle données societaire
-    @PostMapping("/me")
-    public Societaire newSocietaire(@RequestBody Societaire societaire) {
-        return this.societaireService.addSocietaire(societaire);
-    }
+	// post une nouvelle données societaire
+	@PostMapping("/me")
+	public Societaire newSocietaire(@RequestBody Societaire societaire) {
+		return this.societaireService.addSocietaire(societaire);
+	}
 
-    // PUT: Modification du Sociétaire (Endpoint d’accès par NSOC)
-    @PutMapping("/{numeroSocietaire}")
-    public Societaire modicationSocietaire(@RequestParam Long numeroSocietaire, @RequestBody Societaire societaire) {
-        return societaireService.modicationSocietaire(numeroSocietaire, societaire);
-    }
+	// PUT: Modification du Sociétaire (Endpoint d’accès par NSOC)
+	@PutMapping("/{numeroSocietaire}")
+	public Societaire modicationSocietaire(@PathVariable Long numeroSocietaire, @RequestBody Societaire societaire) {
+		return societaireService.modicationSocietaire(numeroSocietaire, societaire);
+	}
 
-    // PUT: Modification de l'adresse du Sociétaire (Endpoint d’accès par NSOC)
-    @PutMapping("/{numeroSocietaire}/adresse")
-    public Societaire modicationSocietaire(@PathVariable Long numeroSocietaire, @RequestBody AdresseSocietaire adresseSocietaire) {
-        return societaireService.modificationAdresseSocietaire(numeroSocietaire, adresseSocietaire);
-    }
-    @ApiOperation(value="Return hello Word")
-    @ApiResponses(
-    		value = {
-    				@ApiResponse(code =100, message = "100 is the message"),
-    				@ApiResponse(code =200, message = "Sucessfull hello word ! ")
-    		}
-    )
-    @GetMapping("/hello")
-    public String getHello() {
-        return "Hello World";
-    }
+	// PUT: Modification de l'adresse du Sociétaire (Endpoint d’accès par NSOC)
+	@PutMapping("/{numeroSocietaire}/adresse")
+	public Societaire modicationSocietaire(@PathVariable Long numeroSocietaire,
+			@RequestBody AdresseSocietaire adresseSocietaire) {
+		return societaireService.modificationAdresseSocietaire(numeroSocietaire, adresseSocietaire);
+	}
+
+	@ApiOperation(value = "Return hello Word")
+	@ApiResponses(value = { @ApiResponse(code = 100, message = "100 is the message"),
+			@ApiResponse(code = 200, message = "Sucessfull hello word ! ") })
+	@GetMapping("/hello")
+	public String getHello() {
+		return "Hello World";
+	}
 
 }
